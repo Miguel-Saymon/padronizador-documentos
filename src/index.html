@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Padronizador de Documentos</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Carregamento direto do PDF.js via CDN para evitar erros de Worker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Padronizador de Documentos</h1>
+      <p>Envie um arquivo PDF ou DOCX para reformatá-lo no padrão Doutrin.</p>
+    </header>
+
+    <main>
+      <!-- Uso do elemento label nativo para garantir o funcionamento do clique em qualquer navegador -->
+      <label for="entrada-arquivo" id="zona-envio" class="drop-zone">
+        <span class="mensagem-envio">Arraste e solte o arquivo (.pdf ou .docx) aqui ou clique para selecionar</span>
+        <input type="file" id="entrada-arquivo" accept=".pdf, .docx" class="hidden-input" />
+      </label>
+
+      <div id="painel-status" class="status-panel hidden">
+        <div id="indicador-carregamento" class="spinner"></div>
+        <p id="texto-status">Processando arquivo...</p>
+      </div>
+
+      <div id="painel-resultado" class="result-panel hidden">
+        <h3>Documento Processado com Sucesso!</h3>
+        <p id="informacao-arquivo"></p>
+        <button id="botao-baixar" class="btn">Baixar DOCX Padronizado</button>
+      </div>
+
+      <div id="painel-erro" class="error-panel hidden">
+        <p id="texto-erro" class="error-message"></p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
