@@ -4,7 +4,7 @@ Aplicação web estática para conversão e padronização automática de docume
 
 Todo o processamento acontece **100% no navegador do usuário** — nenhum arquivo é enviado a um servidor. Isso garante privacidade (o documento nunca sai do computador de quem usa) e custo zero de infraestrutura (o site inteiro é estático, hospedado no GitHub Pages).
 
-**[🔗 Usar agora](https://SEU_USUARIO.github.io/padronizador-documentos/)**
+**[🔗 Usar agora](https://Miguel-Saymon.github.io/padronizador-documentos/)**
 
 ## Como funciona
 
