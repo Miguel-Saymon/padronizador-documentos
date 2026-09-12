@@ -25,11 +25,12 @@ body {
   background-image: radial-gradient(circle at 15% 10%, rgba(27, 42, 74, 0.05), transparent 45%);
   color: var(--texto-corpo);
   margin: 0;
-  padding: 24px;
+  padding: clamp(16px, 5vw, 24px);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-height: 100dvh;
   line-height: 1.5;
 }
 
@@ -38,7 +39,7 @@ body {
 .folha {
   position: relative;
   background: var(--pagina);
-  padding: 3rem 2.5rem 2.5rem;
+  padding: clamp(2rem, 8vw, 3rem) clamp(1.25rem, 6vw, 2.5rem) clamp(1.75rem, 6vw, 2.5rem);
   border-radius: 3px 14px 14px 14px;
   box-shadow:
     0 1px 2px var(--sombra),
@@ -52,7 +53,7 @@ body {
 .folha__aba {
   position: absolute;
   top: -14px;
-  left: 2rem;
+  left: clamp(1.25rem, 6vw, 2rem);
   background: var(--acento);
   color: #fff;
   font-size: 0.72rem;
@@ -69,7 +70,8 @@ body {
 .folha__cabecalho h1 {
   font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: clamp(1.4rem, 6vw, 1.75rem);
+  line-height: 1.25;
   color: var(--tinta);
   margin: 0.25rem 0 0.5rem;
 }
@@ -89,10 +91,11 @@ body {
   gap: 10px;
   border: 1.5px dashed #b7bfd0;
   border-radius: 8px;
-  padding: 36px 20px;
+  padding: clamp(24px, 8vw, 36px) clamp(14px, 5vw, 20px);
   cursor: pointer;
   background-color: #f7f8fb;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .drop-zone:hover {
@@ -220,12 +223,15 @@ body {
   background-color: var(--acento);
   color: white;
   border: none;
-  padding: 12px 28px;
+  padding: 13px 28px;
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
+  width: 100%;
+  max-width: 320px;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn:hover {
@@ -271,10 +277,42 @@ body {
 /* ---------- telas pequenas ---------- */
 
 @media (max-width: 480px) {
-  .folha {
-    padding: 2.5rem 1.5rem 2rem;
+  body {
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 32px;
   }
+
+  .folha {
+    border-radius: 3px 10px 10px 10px;
+  }
+
+  .folha__cabecalho p {
+    font-size: 0.9rem;
+  }
+
+  .drop-zone__icone {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mensagem-envio {
+    font-size: 0.92rem;
+  }
+
+  .result-panel,
+  .error-panel {
+    padding: 16px 14px;
+  }
+
+  .btn {
+    max-width: none;
+  }
+}
+
+@media (max-width: 340px) {
   .folha__aba {
-    left: 1.5rem;
+    font-size: 0.65rem;
+    padding: 4px 10px;
   }
 }
