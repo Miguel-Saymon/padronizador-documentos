@@ -33,6 +33,17 @@
         <input type="file" id="entrada-arquivo" accept=".pdf, .docx" class="hidden-input" />
       </label>
 
+      <div class="credito-opcao">
+        <label class="checkbox-linha">
+          <input type="checkbox" id="artigo-republicado" />
+          <span>Artigo republicado de outra revista?</span>
+        </label>
+        <div id="campo-revista-credito" class="campo-credito hidden">
+          <label for="nome-revista-credito">Nome da revista</label>
+          <input type="text" id="nome-revista-credito" placeholder="Ex.: Revista da Faculdade de Direito UFPR" />
+        </div>
+      </div>
+
       <div id="painel-status" class="status-panel hidden">
         <div id="indicador-carregamento" class="spinner"></div>
         <p id="texto-status">Processando arquivo...</p>

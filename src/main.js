@@ -9,6 +9,9 @@ const painelErro = document.getElementById('painel-erro');
 const textoErro = document.getElementById('texto-erro');
 const informacaoArquivo = document.getElementById('informacao-arquivo');
 const botaoBaixar = document.getElementById('botao-baixar');
+const artigoRepublicado = document.getElementById('artigo-republicado');
+const nomeRevistaCredito = document.getElementById('nome-revista-credito');
+const campoRevistaCredito = document.getElementById('campo-revista-credito');
 
 let arquivoGerado = null;
 let nomeArquivoOriginal = '';
@@ -53,6 +56,11 @@ async function processarArquivo(arquivo) {
     
     // Extração do conteúdo
     const dadosExtraidos = await lerDocumento(arquivo);
+    if (artigoRepublicado?.checked && nomeRevistaCredito?.value.trim()) {
+      dadosExtraidos.creditoPublicacao = nomeRevistaCredito.value.trim();
+    } else {
+      dadosExtraidos.creditoPublicacao = '';
+    }
 
     // Geração do novo arquivo formatado
     arquivoGerado = await gerarDocxPadronizado(dadosExtraidos);
@@ -100,3 +108,7 @@ function exibirErro(mensagem) {
   textoErro.textContent = mensagem;
   painelErro.classList.remove('hidden');
 }
+artigoRepublicado?.addEventListener('change', () => {
+  campoRevistaCredito?.classList.toggle('hidden', !artigoRepublicado.checked);
+  if (!artigoRepublicado.checked && nomeRevistaCredito) nomeRevistaCredito.value = '';
+});
