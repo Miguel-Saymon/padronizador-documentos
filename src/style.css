@@ -316,7 +316,75 @@ body {
     padding: 4px 10px;
   }
 }
-.credito-opcao { margin: 18px 0; }
-.checkbox-linha { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
-.campo-credito { margin-top: 10px; display: grid; gap: 6px; }
-.campo-credito input { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+
+/* ---------- opções do resultado (republicação e gráficos) ---------- */
+
+.avisos {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: #fff7e0;
+  border: 1px solid #e6cf8a;
+  border-radius: 8px;
+  color: #6b5311;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.avisos li + li {
+  margin-top: 0.4rem;
+}
+
+.opcoes {
+  margin: 1rem 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.opcao {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.opcao input {
+  margin-top: 0.25rem;
+}
+
+.opcoes__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 1.4rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+}
+
+.campo input[type='text'] {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  color: var(--tinta);
+}
+
+.campo input[type='file'] {
+  font-size: 0.8rem;
+}
+
+.opcoes__nota {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+}
